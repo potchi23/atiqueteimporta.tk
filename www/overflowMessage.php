@@ -7,7 +7,7 @@ require_once("init.php");
 $instance = Application::getInstance();
 $db = $instance->init();
                 
-$query = $db->query("SELECT message, ts FROM messages ORDER BY id DESC LIMIT $ini, $offset");
+$query = $db->query("SELECT id, message, ts FROM messages ORDER BY id DESC LIMIT $ini, $offset");
 $data = array();
 
 if(mysqli_num_rows($query)){    

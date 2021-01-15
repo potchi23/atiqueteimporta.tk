@@ -14,15 +14,9 @@ class Application{
         return self::$instance;
     }
     
-    
     public function init(){
 	    if (!$this->conn ) {
-            /*
-            $dbHost = "fdb28.awardspace.net";
-		    $dbUser = "3648978_db"; 
-            $dbName = "3648978_db";
-		    $dbPass = "m3l!;Jd_1P!CSa9(";
-            * */
+
             $dbHost = "localhost";
             $dbName = "messages_db";
 		    $dbUsername = "root"; 

@@ -3,6 +3,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width">
+        <meta name="robots" content="noindex">
         <meta charset="utf-8">
         <title>A ti qué te importa</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -25,12 +25,13 @@ function printMessages(ini, offset){
             let resultLength = dataObject.length;
 
             if(resultLength > 0){
-                let message, localdate;
+                let id, message, localdate;
                 const timezoneOffset = new Date().getTimezoneOffset();
 
                 let numberOfMessages = resultLength == offset ? offset : resultLength;
 
                 for(let i = 0; i < numberOfMessages; i++){
+                    id = dataObject[i]["id"];
                     message = dataObject[i]["message"];
                     serverdate = new Date(dataObject[i]["ts"]);
                     serverdate.setHours(serverdate.getHours() - timezoneOffset/60);
@@ -45,7 +46,7 @@ function printMessages(ini, offset){
                     $("#msg-container").append(
                         "<div>=================================<br>" + 
                         "<div id='message'><i>" + escapeHtml(message).replace(/\n/g, "<br/>") + "</i></div>" +
-                        "<div id='date'>" + localdate + "</div>" +
+                        "<div id='date'>" + localdate + " #" + id + "</div>" +
                         "=================================<br></div>"
                     );
                 }
