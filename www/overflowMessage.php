@@ -16,6 +16,7 @@ if(mysqli_num_rows($query)){
     }
 }
 
+$db->close();
 $result = array("data" => $data);
 echo json_encode($result);
 
