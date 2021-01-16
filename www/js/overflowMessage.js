@@ -81,8 +81,6 @@ $(document).ready(function() {
     let offset = 1;
 
     $(window).scroll(function() {
-        let val = $(window).scrollTop() + $(window).height();
-
         if ($(window).scrollTop() + window.innerHeight >= document.body.scrollHeight) {
             ini += printMessages(ini, offset);
         }
