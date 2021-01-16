@@ -43,8 +43,17 @@ function printMessages(ini, offset){
 
                     localdate =  day + "/" +  month + "/" +  year + " - " + time;
 
+                    let match = message.match(/(#)([0-9])+/g);
+                    let response = match == null ? "" : match;
+                    
+                    if(response.length > 0){
+                        response.forEach((code, index) => {
+                            message = message.replace(code, "<a href='" + response[index] + "'>" + response[index] +"</a>");
+                        });
+                    }
+
                     $("#msg-container").append(
-                        "<div>=================================<br>" + 
+                        "<div id='"+ id +"'>=================================<br>" + 
                         "<div id='message'><i>" + escapeHtml(message).replace(/\n/g, "<br/>") + "</i></div>" +
                         "<div id='date'>" + localdate + " #" + id + "</div>" +
                         "=================================<br></div>"
@@ -73,7 +82,6 @@ $(document).ready(function() {
 
     $(window).scroll(function() {
         let val = $(window).scrollTop() + $(window).height();
-        //alert( val + " " + $(document).height());
 
         if ($(window).scrollTop() + window.innerHeight >= document.body.scrollHeight) {
             ini += printMessages(ini, offset);
